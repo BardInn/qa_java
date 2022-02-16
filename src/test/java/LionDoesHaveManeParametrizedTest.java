@@ -10,6 +10,8 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class LionDoesHaveManeParametrizedTest {
 
+	@Mock
+	Feline feline;
 
 	private final String sex;                            //поле пола животного
 	private final boolean expected;                      //поле ожидаемого результата
@@ -30,7 +32,7 @@ public class LionDoesHaveManeParametrizedTest {
 
 	@Test
 	public void doesHaveManeTest() throws Exception {
-		Lion lion = new Lion(sex);
+		Lion lion = new Lion(sex, feline);
 		boolean actual = lion.doesHaveMane();
 		assertEquals(expected, actual);
 	}
